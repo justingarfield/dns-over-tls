@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>JGarfield.DNSOverTLS.Shared</AssemblyName>
+    <RootNamespace>JGarfield.DNSOverTLS.Shared</RootNamespace>
+  </PropertyGroup>
+
+</Project>
