@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{2D992FC0-83CE-429A-84A9-6E4CA38369E3}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>JGarfield.DNSOverTLS.WindowsService</RootNamespace>
-    <AssemblyName>JGarfield.DNSOverTLS.WindowsService</AssemblyName>
+    <RootNamespace>JGarfield.DnsOverTls.WindowsService</RootNamespace>
+    <AssemblyName>JGarfield.DnsOverTls.WindowsService</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -35,6 +35,9 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
@@ -48,11 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DNSOverTLSProxyService.cs">
+    <Compile Include="DnsOverTlsProxyService.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DNSOverTLSProxyService.Designer.cs">
-      <DependentUpon>DNSOverTLSProxyService.cs</DependentUpon>
+    <Compile Include="DnsOverTlsProxyService.Designer.cs">
+      <DependentUpon>DnsOverTlsProxyService.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="ProjectInstaller.cs">
@@ -65,14 +68,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="DNSOverTLSProxyService.resx">
-      <DependentUpon>DNSOverTLSProxyService.cs</DependentUpon>
+    <EmbeddedResource Include="DnsOverTlsProxyService.resx">
+      <DependentUpon>DnsOverTlsProxyService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProjectInstaller.resx">
       <DependentUpon>ProjectInstaller.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

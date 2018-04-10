@@ -1,36 +1,57 @@
-﻿using DNS.Client;
-using DNS.Client.RequestResolver;
-using DNS.Server;
-using JGarfield.DNSOverTLS.Shared;
-using System;
-using System.Net;
+﻿using JGarfield.DnsOverTls.Shared;
+using log4net;
+using log4net.Config;
+using log4net.Repository.Hierarchy;
+using System.IO;
+using System.Reflection;
 using System.Threading.Tasks;
+using System.Xml;
 
-namespace ConsoleService
+namespace JGarfield.DnsOverTls.ConsoleService
 {
-    class Program
+
+    /// <summary>
+    /// Simple Console application that wraps the DnsResolver 
+    /// in the Shared library. Used for Debugging when you don't
+    /// feel like going through a full install for the Windows 
+    /// Service project and only need to debug Shared.
+    /// </summary>
+    internal class Program
     {
-        static void Main(string[] args)
+
+        /// <summary>
+        /// Logger used for Debug, Warnings, Info, etc.
+        /// </summary>
+        private static readonly ILog log = LogManager.GetLogger(typeof(Program));
+
+        /// <summary>
+        /// Main entry point.
+        /// </summary>
+        static void Main()
         {
-            MainAsync(args).Wait();
+
+            // Configure log4net
+            XmlDocument log4netConfig = new XmlDocument();
+            log4netConfig.Load(File.OpenRead("log4net.config"));
+            var repo = LogManager.CreateRepository(Assembly.GetEntryAssembly(), typeof(Hierarchy));
+            XmlConfigurator.Configure(repo, log4netConfig["log4net"]);
+
+            // Fire up DNS Resolver
+            CreateAndStartDnsResolver().Wait();
+
         }
 
-        public async static Task MainAsync(string[] args)
+        /// <summary>
+        /// Creates a new DnsResolver and tells it to start 
+        /// listening for traffic.
+        /// </summary>
+        /// <returns></returns>
+        public async static Task CreateAndStartDnsResolver()
         {
-            MasterFile masterFile = new MasterFile();
-            IRequestResolver tlsRequestResolver = new TlsRequestResolver(new System.Net.IPEndPoint(IPAddress.Parse("1.1.1.1"), 853));
-            DnsServer server = new DnsServer(tlsRequestResolver);
-            
-            server.Responded += (request, response) => Console.WriteLine("{0} => {1}", request, response);
-            server.Listening += () => Console.WriteLine("Listening");
-            server.Errored += (e) => {
-                Console.WriteLine("Errored: {0}", e);
-                ResponseException responseError = e as ResponseException;
-                if (responseError != null) Console.WriteLine(responseError.Response);
-            };
-
-            await server.Listen();
+            DnsResolver dnsResolver = new DnsResolver();
+            await dnsResolver.Listen();
         }
 
     }
+
 }

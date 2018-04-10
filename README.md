@@ -23,3 +23,25 @@ NetStandard 2.0 Class Library that contains any functionality that can be shared
 ### WindowsService
 
 .NET Framework 4.6.1 project that houses the Windows Service related components and code.
+
+## References
+
+A huge thanks goes out to the creators of the content below. These helped spark ideas, fix some bugs, and get this prototype to where it is extremely quick!
+
+* [RFC7858 - DNS over Transport Layer Security (TLS)](https://tools.ietf.org/html/rfc7858)
+* [Cloudflare 1.1.1.1 - DNS over TLS](https://developers.cloudflare.com/1.1.1.1/dns-over-tls/)
+* [SPKI/SDSI Certificates](http://world.std.com/~cme/html/spki.html)
+* [Calculate Public Key Pin (.Net)](https://stackoverflow.com/questions/39441425/calculate-public-key-pin-net)
+* [PortQry Command Line Port Scanner Version 2.0](https://www.microsoft.com/en-us/download/details.aspx?id=17148)
+* [Creating .NET Core Windows Services](https://stackify.com/creating-net-core-windows-services/)
+* [Win32Exception Class](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.win32exception?view=netframework-4.6.1)
+* [ServiceBase Class](https://docs.microsoft.com/en-us/dotnet/api/system.serviceprocess.servicebase?view=netframework-4.7.2)
+* [ServiceController Class](https://docs.microsoft.com/en-us/dotnet/api/system.serviceprocess.servicecontroller?view=netframework-4.7.2)
+* [RFC768 - User Datagram Protocol](https://www.ietf.org/rfc/rfc768.txt)
+* [RFC1035 - Domain Implementation and Specification](https://www.ietf.org/rfc/rfc1035.txt)
+* [.NET API Browser](https://docs.microsoft.com/en-us/dotnet/api/)
+* [Best Practices for System.Net Classes](https://docs.microsoft.com/en-us/dotnet/framework/network-programming/best-practices-for-system-net-classes)
+* [How to use SSL in TcpClient class](https://stackoverflow.com/questions/8375013/how-to-use-ssl-in-tcpclient-class)
+* [SslStream Sample](https://leastprivilege.com/2005/02/28/sslstream-sample/)
+* [How can I display a system tray icon for C# window service.?](https://stackoverflow.com/questions/2652254/how-can-i-display-a-system-tray-icon-for-c-sharp-window-service)
+* [UWP APP WITH SYSTRAY EXTENSION](https://stefanwick.com/2017/06/24/uwp-app-with-systray-extension/)

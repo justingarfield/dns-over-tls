@@ -1,13 +1,18 @@
 ﻿using System.ComponentModel;
+using System.Configuration.Install;
 
-namespace JGarfield.DNSOverTLS.WindowsService
+namespace JGarfield.DnsOverTls.WindowsService
 {
+
     [RunInstaller(true)]
-    public partial class ProjectInstaller : System.Configuration.Install.Installer
+    public partial class ProjectInstaller : Installer
     {
+
         public ProjectInstaller()
         {
             InitializeComponent();
         }
+
     }
+
 }

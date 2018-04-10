@@ -7,8 +7,8 @@
     <ProjectGuid>{0CDF12B2-9218-4EE9-BC8D-E8671BB25C15}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WindowsApp</RootNamespace>
-    <AssemblyName>WindowsApp</AssemblyName>
+    <RootNamespace>JGarfield.DnsOverTls.WindowsApp</RootNamespace>
+    <AssemblyName>JGarfield.DnsOverTls.WindowsApp</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.16299.0</TargetPlatformVersion>

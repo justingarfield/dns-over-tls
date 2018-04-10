@@ -1,4 +1,4 @@
-﻿namespace SystrayComponent
+﻿namespace JGarfield.DnsOverTls.SystrayComponent
 {
     partial class Form1
     {

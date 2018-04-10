@@ -12,9 +12,10 @@ using Windows.ApplicationModel.AppService;
 using Windows.ApplicationModel.Core;
 using Windows.Foundation.Collections;
 
-namespace SystrayComponent
+namespace JGarfield.DnsOverTls.SystrayComponent
 {
-    class SystrayApplicationContext : ApplicationContext
+
+    public class SystrayApplicationContext : ApplicationContext
     {
 
         private static readonly ILog log = LogManager.GetLogger(typeof(SystrayApplicationContext));

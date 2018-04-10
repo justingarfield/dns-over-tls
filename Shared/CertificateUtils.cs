@@ -3,7 +3,7 @@ using System;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 
-namespace JGarfield.DNSOverTLS.Shared
+namespace JGarfield.DnsOverTls.Shared
 {
 
     /// <summary>
@@ -13,6 +13,9 @@ namespace JGarfield.DNSOverTLS.Shared
     public static class CertificateUtils
     {
 
+        /// <summary>
+        /// Logger used for Debug, Warnings, Info, etc.
+        /// </summary>
         private static readonly ILog log = LogManager.GetLogger(typeof(CertificateUtils));
 
         /// <summary>

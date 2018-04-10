@@ -10,15 +10,24 @@ using System.Net.Sockets;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 
-namespace JGarfield.DNSOverTLS.Shared
+namespace JGarfield.DnsOverTls.Shared
 {
 
     /// <summary>
+    /// A DNS-over-TLS Request Resolver implementation for Mirza 
+    /// Kapetanovic's DNS library in NuGet. Use this if you want
+    /// to use DNS-over-TLS when calling forwarders.
     /// 
+    /// On top of using TLS for communications, this also verifies
+    /// the SPKI Pin of the server on the remote end to ensure it's
+    /// a legitimate endpoint that the end-user trusts.
     /// </summary>
     public class TlsRequestResolver : IRequestResolver
     {
 
+        /// <summary>
+        /// Logger used for Debug, Warnings, Info, etc.
+        /// </summary>
         private static readonly ILog log = LogManager.GetLogger(typeof(TlsRequestResolver));
 
         /// <summary>
@@ -43,7 +52,7 @@ namespace JGarfield.DNSOverTLS.Shared
                 
                 await tcp.ConnectAsync(dns.Address, dns.Port);
 
-                using (SslStream sslStream = new SslStream(tcp.GetStream(), true, new RemoteCertificateValidationCallback(UserCertificateValidationCallback), new LocalCertificateSelectionCallback(UserCertificateSelectionCallback), EncryptionPolicy.RequireEncryption))
+                using (SslStream sslStream = new SslStream(tcp.GetStream(), false, new RemoteCertificateValidationCallback(UserCertificateValidationCallback), new LocalCertificateSelectionCallback(UserCertificateSelectionCallback), EncryptionPolicy.RequireEncryption))
                 {
                     await sslStream.AuthenticateAsClientAsync("1.1.1.1");
 
@@ -77,6 +86,12 @@ namespace JGarfield.DNSOverTLS.Shared
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="stream"></param>
+        /// <param name="buffer"></param>
+        /// <returns></returns>
         private static async Task Read(Stream stream, byte[] buffer)
         {
             int length = buffer.Length;

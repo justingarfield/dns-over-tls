@@ -1,6 +1,6 @@
-﻿namespace JGarfield.DNSOverTLS.WindowsService
+﻿namespace JGarfield.DnsOverTls.WindowsService
 {
-    partial class DNSOverTLSProxyService
+    partial class DnsOverTlsProxyService
     {
         /// <summary> 
         /// Required designer variable.

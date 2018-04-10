@@ -3,10 +3,10 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.ServiceProcess;
 
-namespace JGarfield.DNSOverTLS.WindowsService
+namespace JGarfield.DnsOverTls.WindowsService
 {
 
-    public partial class DNSOverTLSProxyService : ServiceBase
+    public partial class DnsOverTlsProxyService : ServiceBase
     {
 
         [DllImport("advapi32.dll", SetLastError = true)]
@@ -14,7 +14,7 @@ namespace JGarfield.DNSOverTLS.WindowsService
 
         private int eventId = 1;
 
-        public DNSOverTLSProxyService()
+        public DnsOverTlsProxyService()
         {
             InitializeComponent();
             eventLog1 = new System.Diagnostics.EventLog();

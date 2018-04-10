@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SystrayComponent.Properties {
+namespace JGarfield.DnsOverTls.SystrayComponent.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

@@ -1,4 +1,4 @@
-﻿namespace JGarfield.DNSOverTLS.WindowsService
+﻿namespace JGarfield.DnsOverTls.WindowsService
 {
     partial class ProjectInstaller
     {

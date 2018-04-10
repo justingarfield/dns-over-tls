@@ -1,21 +1,38 @@
-﻿using System.ServiceProcess;
+﻿using log4net;
+using log4net.Config;
+using System.ServiceProcess;
 
-namespace JGarfield.DNSOverTLS.WindowsService
+namespace JGarfield.DnsOverTls.WindowsService
 {
-    static class Program
+
+    /// <summary>
+    /// 
+    /// </summary>
+    internal static class Program
     {
+
         /// <summary>
-        /// The main entry point for the application.
+        /// Logger used for Debug, Warnings, Info, etc.
+        /// </summary>
+        private static readonly ILog log = LogManager.GetLogger(typeof(Program));
+
+        /// <summary>
+        /// Main entry point.
         /// </summary>
         static void Main()
         {
-            
-            ServiceBase[] ServicesToRun;
-            ServicesToRun = new ServiceBase[]
+
+            XmlConfigurator.Configure(new System.IO.FileInfo("log4net.config"));
+
+            ServiceBase[] servicesToRun;
+            servicesToRun = new ServiceBase[]
             {
-                new DNSOverTLSProxyService()
+                new DnsOverTlsProxyService()
             };
-            ServiceBase.Run(ServicesToRun);
+            ServiceBase.Run(servicesToRun);
+            
         }
+
     }
+
 }

@@ -4,10 +4,10 @@ using System.Windows.Forms;
 using log4net;
 using log4net.Config;
 
-namespace SystrayComponent
+namespace JGarfield.DnsOverTls.SystrayComponent
 {
 
-    static class Program
+    internal static class Program
     {
 
         private static readonly ILog log = LogManager.GetLogger(typeof(Program));
