@@ -6,4 +6,8 @@
     <RootNamespace>JGarfield.DNSOverTLS.Shared</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="DNS" Version="4.0.0" />
+  </ItemGroup>
+
 </Project>

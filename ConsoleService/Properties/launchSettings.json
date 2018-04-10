@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ConsoleService": {
+      "commandName": "Project",
+      "commandLineArgs": "portqry.microsoft.com"
+    }
+  }
+}
